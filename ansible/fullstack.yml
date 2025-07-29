@@ -1,8 +1,8 @@
 - name: Install and Configure Nexus Repository
   hosts: all
   roles:
-    - docker
+    - ansible
     - jenkins
-    - nexus
-    - sonarqube
+    - terraform
+    
 
