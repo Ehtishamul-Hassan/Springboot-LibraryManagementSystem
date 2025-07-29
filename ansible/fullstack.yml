@@ -1,8 +1,9 @@
-- name: Install and Configure Nexus Repository
-  hosts: all
+- name: Install and Configure Nexus
+  hosts: nexus
   roles:
-    - ansible
-    - jenkins
-    - terraform
-    
+    - nexus
 
+- name: Install and Configure SonarQube
+  hosts: sonarqube
+  roles:
+    - sonarqube

@@ -1,16 +1,17 @@
-ami = "ami-00e3c023f0084cbfb"
+ami      = "ami-00e3c023f0084cbfb"
 key_name = "MumbaiKeyPair"
 
 
 instances = {
-  inst1 = {
+  nexus = {
     az   = "ap-south-1a"
-    tag  = "public-subnet-1a"
-    name = "terraform"
+    tag  = "nexus-subnet"
+    name = "nexus-server"
   }
-#   inst2 = {
-#     az   = "us-east-1b"
-#     tag  = "public-subnet-1b"
-#     name = "web-1b"
-#   }
+  sonarqube = {
+    az            = "ap-south-1a"
+    tag           = "sonarqube-subnet"
+    name          = "sonarqube-server"
+    instance_type = "t3.small"
+  }
 }
