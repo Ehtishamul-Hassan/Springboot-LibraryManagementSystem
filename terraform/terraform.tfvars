@@ -7,7 +7,7 @@ instances = {
     az            = "ap-south-1a"
     tag           = "1a"
     name          = "nexus-server"
-    instance_type = "t2.micro"
+    instance_type = "t3.micro"
   }
   sonarqube = {
     az            = "ap-south-1a"
