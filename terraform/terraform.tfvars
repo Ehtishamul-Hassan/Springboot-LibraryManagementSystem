@@ -4,13 +4,14 @@ key_name = "MumbaiKeyPair"
 
 instances = {
   nexus = {
-    az   = "ap-south-1a"
-    tag  = "nexus-subnet"
-    name = "nexus-server"
+    az            = "ap-south-1a"
+    tag           = "1a"
+    name          = "nexus-server"
+    instance_type = "t2.micro"
   }
   sonarqube = {
     az            = "ap-south-1a"
-    tag           = "sonarqube-subnet"
+    tag           = "1a"
     name          = "sonarqube-server"
     instance_type = "t3.small"
   }
