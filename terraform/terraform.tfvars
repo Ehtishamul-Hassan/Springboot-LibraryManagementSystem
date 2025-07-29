@@ -1,4 +1,4 @@
-ami      = "ami-00e3c023f0084cbfb"
+ami      = "ami-0583c2579d6458f46"
 key_name = "MumbaiKeyPair"
 
 
