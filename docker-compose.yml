@@ -1,0 +1,38 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-dbcontainer
+    environment:
+      MYSQL_DATABASE: securelibrarymanagementsystem
+      MYSQL_ROOT_PASSWORD: 1234
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+    networks:
+      - spring-net
+
+  springboot-app:
+    build: .
+    image: doceh/springboot-lib-app
+    container_name: library-app-container
+    environment:
+      DB_URL: jdbc:mysql://mysql:3306/securelibrarymanagementsystem
+      DB_USER: root
+      DB_PASS: 1234
+    depends_on:
+      - mysql
+    ports:
+      - "8080:8080"
+    networks:
+      - spring-net
+
+volumes:
+  mysql_data:
+
+
+networks:
+  spring-net:
+
+

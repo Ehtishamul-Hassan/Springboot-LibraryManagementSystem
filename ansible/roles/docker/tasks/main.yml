@@ -1,0 +1,35 @@
+# docker_setup/tasks/main.yml
+
+- name: Install Docker
+  become: true
+  ansible.builtin.dnf:
+    name: docker
+    state: present
+    update_cache: yes
+  notify: restart docker
+
+- name: Enable Docker service
+  become: true
+  ansible.builtin.service:
+    name: docker
+    enabled: yes
+
+- name: Check Docker version
+  become: true
+  ansible.builtin.command: docker --version
+  register: docker_version
+  changed_when: false
+
+- name: Download Docker Compose
+  become: true
+  ansible.builtin.get_url:
+    url: "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}"
+    dest: "{{ docker_compose_path }}"
+    mode: '0755'
+
+- name: Check Docker Compose version
+  become: true
+  ansible.builtin.command: "{{ docker_compose_path }} version"
+  register: docker_compose_ver
+  changed_when: false
+

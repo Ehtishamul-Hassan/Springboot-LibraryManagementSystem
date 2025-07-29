@@ -1,0 +1,5 @@
+- name: Setup Jenkins and Maven
+  hosts: all
+  roles:
+    - jenkins
+

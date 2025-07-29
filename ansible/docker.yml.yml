@@ -1,0 +1,5 @@
+- name: Setup Docker and Docker Compose
+  hosts: all
+  roles:
+    - docker
+
