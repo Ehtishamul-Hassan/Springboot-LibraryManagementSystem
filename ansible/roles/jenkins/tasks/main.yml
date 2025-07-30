@@ -10,11 +10,15 @@
       - python3-pip  
     state: present
 
-- name: Upgrade pip to latest version
-  pip:
-    name: pip
-    executable: pip3
-    state: latest
+- name: Check current pip version
+  command: pip3 --version
+  register: pip_version_check
+  changed_when: false
+
+- name: Upgrade pip to latest version (only if not latest)
+  command: python3 -m pip install --upgrade pip
+  when: "'21.3.1' not in pip_version_check.stdout"
+
 
 - name: Install boto3 and botocore via pip
   pip:
