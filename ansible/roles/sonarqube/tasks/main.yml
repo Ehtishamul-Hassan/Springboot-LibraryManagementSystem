@@ -13,7 +13,7 @@
     state: present
 
 
-- name: Create SonarQube user 'sonar' if not exists
+- name: Create SonarQube user 
   user:
     name: sonar
     home: /opt/sonarqube
@@ -22,7 +22,7 @@
     state: present
     create_home: yes
     group: sonar
-  when: sonar_user_check.rc != 0
+  
 
 - name: Allow passwordless sudo for SonarQube user
   copy:
