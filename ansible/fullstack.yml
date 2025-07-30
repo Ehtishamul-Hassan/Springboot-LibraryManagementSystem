@@ -1,9 +1,13 @@
 - name: Install and Configure Nexus
   hosts: tag_nexus
+  become: true
+  remote_user: ec2-user
   roles:
     - nexus
 
 - name: Install and Configure SonarQube
   hosts: tag_sonar
+  become: true
+  remote_user: ec2-user
   roles:
     - sonarqube
