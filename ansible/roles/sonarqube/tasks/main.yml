@@ -7,16 +7,16 @@
       - unzip
     state: present
 
+- name: Create nexus group
+  group:
+    name: "{{ nexus_group }}"
+    state: present
+
 - name: Check if sonar user exists
   command: id "{{ sonarqube_user }}"
   register: sonar_user_check
   ignore_errors: yes
   changed_when: false
-
-- name: Check if SonarQube user 'sonar' exists
-  command: id sonar
-  register: sonar_user_check
-  ignore_errors: yes
 
 - name: Create SonarQube user 'sonar' if not exists
   user:

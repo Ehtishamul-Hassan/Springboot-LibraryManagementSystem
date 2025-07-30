@@ -32,12 +32,18 @@
     line: "{{ swap_file }} swap swap defaults 0 0"
     state: present
 
+- name: Create nexus group
+  group:
+    name: "{{ nexus_group }}"
+    state: present
+
 - name: Create nexus user and group
   user:
     name: "{{ nexus_user }}"
     group: "{{ nexus_group }}"
     shell: /bin/bash
     create_home: yes
+
 
 - name: Allow passwordless sudo for nexus
   copy:
