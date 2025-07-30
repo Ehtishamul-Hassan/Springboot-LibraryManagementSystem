@@ -21,3 +21,8 @@ variable "security_group_id" {
 variable "key_name" {
   type = string
 }
+
+variable "extra_tags" {
+  type    = map(string)
+  default = {}
+}

@@ -1,9 +1,9 @@
 - name: Install and Configure Nexus
-  hosts: nexus
+  hosts: tag_nexus
   roles:
     - nexus
 
 - name: Install and Configure SonarQube
-  hosts: sonarqube
+  hosts: tag_sonar
   roles:
     - sonarqube

@@ -13,16 +13,28 @@
   ignore_errors: yes
   changed_when: false
 
-- name: Create SonarQube user if not exists
+- name: Check if SonarQube user 'sonar' exists
+  command: id sonar
+  register: sonar_user_check
+  ignore_errors: yes
+
+- name: Create SonarQube user 'sonar' if not exists
   user:
-    name: "{{ sonarqube_user }}"
-    home: "{{ sonarqube_home }}"
+    name: sonar
+    home: /opt/sonarqube
     shell: /bin/false
     system: yes
     state: present
     create_home: yes
-    group: "{{ sonarqube_group }}"
+    group: sonar
   when: sonar_user_check.rc != 0
+
+- name: Allow passwordless sudo for SonarQube user
+  copy:
+    dest: "/etc/sudoers.d/sonar"
+    content: "sonar ALL=(ALL) NOPASSWD: ALL"
+    mode: '0440'
+    validate: 'visudo -cf %s'
 
 
 - name: Download SonarQube

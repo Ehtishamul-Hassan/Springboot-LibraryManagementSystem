@@ -24,6 +24,7 @@ variable "instances" {
     tag           = string
     name          = string
     instance_type = string
+    extra_tags    = map(string)
   }))
   description = "Instances to launch with subnet info and names"
 }

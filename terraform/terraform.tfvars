@@ -8,11 +8,19 @@ instances = {
     tag           = "1a"
     name          = "nexus-server"
     instance_type = "t3.micro"
+    extra_tags = {
+      AnsibleGroup = "nexus"
+      Environment  = "dev"
+    }
   }
   sonarqube = {
     az            = "ap-south-1a"
     tag           = "1a"
     name          = "sonarqube-server"
     instance_type = "t3.small"
+    extra_tags = {
+      AnsibleGroup = "sonar"
+      Environment  = "dev"
+    }
   }
 }

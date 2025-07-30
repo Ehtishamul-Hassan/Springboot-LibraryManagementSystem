@@ -22,4 +22,5 @@ module "ec2_instances" {
   subnet_tag        = each.value.tag
   security_group_id = data.aws_security_group.default.id
   key_name          = var.key_name
+  extra_tags        = each.value.extra_tags
 }

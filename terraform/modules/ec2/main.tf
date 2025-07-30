@@ -27,9 +27,13 @@ resource "aws_instance" "this" {
   associate_public_ip_address = true
   key_name                    = var.key_name
 
-  tags = {
+  # tags = {
+  #   Name = var.name
+  # }
+
+  tags = merge({
     Name = var.name
-  }
+  }, var.extra_tags)
 
   root_block_device {
     volume_size = 15
