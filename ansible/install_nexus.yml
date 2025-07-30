@@ -1,0 +1,6 @@
+- name: Install and Configure Nexus
+  hosts: tag_nexus
+  become: true
+  remote_user: ec2-user
+  roles:
+    - nexus

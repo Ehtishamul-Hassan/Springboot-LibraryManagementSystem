@@ -1,0 +1,6 @@
+- name: Install and Configure SonarQube
+  hosts: tag_sonar
+  become: true
+  remote_user: ec2-user
+  roles:
+    - sonarqube
