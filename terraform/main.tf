@@ -17,7 +17,7 @@ module "ec2_instances" {
   for_each          = var.instances
   source            = "./modules/ec2"
   ami               = var.ami
-  instance_type     = var.instance_type
+  instance_type     = each.value.instance_type
   name              = each.value.name
   subnet_tag        = each.value.tag
   security_group_id = data.aws_security_group.default.id

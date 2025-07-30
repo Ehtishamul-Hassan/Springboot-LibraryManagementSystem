@@ -3,17 +3,6 @@ data "aws_vpc" "default" {
   default = true
 }
 
-# data "aws_subnet_ids" "selected" {
-#   vpc_id = data.aws_vpc.default.id
-#   tags = {
-#     Name = var.subnet_tag
-#   }
-# }
-
-# data "aws_subnet" "selected" {
-#   id = data.aws_subnet_ids.selected.ids[0]
-# }
-
 data "aws_subnets" "selected" {
   filter {
     name   = "vpc-id"
