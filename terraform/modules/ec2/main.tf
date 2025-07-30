@@ -30,6 +30,13 @@ resource "aws_instance" "this" {
   # tags = {
   #   Name = var.name
   # }
+  user_data = <<EOF
+#!/bin/bash
+mkdir -p /home/ec2-user/.ssh
+echo "${file("~/.ssh/ansible_key.pub")}" >> /home/ec2-user/.ssh/authorized_keys
+chown -R ec2-user:ec2-user /home/ec2-user/.ssh
+chmod 600 /home/ec2-user/.ssh/authorized_keys
+EOF
 
   tags = merge({
     Name = var.name
@@ -37,6 +44,6 @@ resource "aws_instance" "this" {
 
   root_block_device {
     volume_size = 15
-    volume_type = "gp2"
+    volume_type = "gp3"
   }
 }
