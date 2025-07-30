@@ -13,12 +13,6 @@
     state: present
 
 
-- name: Check if sonar user exists
-  command: id "{{ sonarqube_user }}"
-  register: sonar_user_check
-  ignore_errors: yes
-  changed_when: false
-
 - name: Create SonarQube user 'sonar' if not exists
   user:
     name: sonar
