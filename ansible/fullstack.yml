@@ -1,13 +1,9 @@
 - name: Install and Configure Nexus
   hosts: tag_nexus
-  connection: aws_ssm
-  gather_facts: false
   roles:
     - nexus
 
 - name: Install and Configure SonarQube
   hosts: tag_sonar
-  connection: aws_ssm
-  gather_facts: false
   roles:
     - sonarqube

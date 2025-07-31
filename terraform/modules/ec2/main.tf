@@ -26,7 +26,16 @@ resource "aws_instance" "this" {
   vpc_security_group_ids      = [var.security_group_id]
   associate_public_ip_address = true
   key_name                    = var.key_name
-  iam_instance_profile        = var.iam_instance_profile
+
+
+  user_data = <<EOF
+#!/bin/bash
+mkdir -p /home/ec2-user/.ssh
+echo "${file("~/.ssh/ansible_key.pub")}" >> /home/ec2-user/.ssh/authorized_keys
+chown -R ec2-user:ec2-user /home/ec2-user/.ssh
+chmod 600 /home/ec2-user/.ssh/authorized_keys
+EOF
+
 
 
   tags = merge({

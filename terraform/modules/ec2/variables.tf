@@ -27,7 +27,4 @@ variable "extra_tags" {
   default = {}
 }
 
-variable "iam_instance_profile" {
-  description = "IAM instance profile name to attach to EC2"
-  type        = string
-}
+

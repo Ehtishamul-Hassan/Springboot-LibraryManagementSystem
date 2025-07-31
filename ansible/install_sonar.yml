@@ -1,7 +1,5 @@
 - name: Install and Configure SonarQube
   hosts: tag_sonar
-  connection: aws_ssm
   become: true
-  gather_facts: false
   roles:
     - sonarqube

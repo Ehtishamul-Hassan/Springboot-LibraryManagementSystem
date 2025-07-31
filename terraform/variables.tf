@@ -17,10 +17,6 @@ variable "instance_type" {
   description = "EC2 type"
 }
 
-variable "create_ssm_role" {
-  type    = bool
-  default = false
-}
 
 
 # 👇 New complex variable to launch multiple instances

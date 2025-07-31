@@ -1,7 +1,5 @@
 - name: Install and Configure Nexus
   hosts: tag_nexus
-  connection: aws_ssm
   become: true
-  gather_facts: false
   roles:
     - nexus

@@ -24,6 +24,6 @@ module "ec2_instances" {
   key_name          = var.key_name
   extra_tags        = each.value.extra_tags
   # iam_instance_profile = aws_iam_instance_profile.ssm_profile.name
-  iam_instance_profile = var.create_ssm_role ? aws_iam_instance_profile.ssm_profile[0].name : data.aws_iam_instance_profile.existing_profile[0].name
+  
 
 }

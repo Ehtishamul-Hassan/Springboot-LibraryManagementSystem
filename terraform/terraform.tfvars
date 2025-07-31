@@ -1,6 +1,5 @@
-ami             = "ami-0583c2579d6458f46"
-key_name        = "MumbaiKeyPair"
-create_ssm_role = false
+ami      = "ami-0583c2579d6458f46"
+key_name = "MumbaiKeyPair"
 
 
 
