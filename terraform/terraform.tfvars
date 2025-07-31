@@ -11,8 +11,8 @@ instances = {
     name          = "nexus-server"
     instance_type = "t2.micro"
     extra_tags = {
-      AnsibleGroup = "nexus"
-      Environment  = "dev"
+      Name        = "nexus"
+      Environment = "dev"
     }
   }
   sonarqube = {
@@ -21,8 +21,8 @@ instances = {
     name          = "sonarqube-server"
     instance_type = "t3.small"
     extra_tags = {
-      AnsibleGroup = "sonar"
-      Environment  = "dev"
+      Name        = "sonar"
+      Environment = "dev"
     }
   }
 }
