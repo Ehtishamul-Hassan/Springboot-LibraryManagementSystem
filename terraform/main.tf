@@ -14,13 +14,14 @@ data "aws_security_group" "default" {
 
 # Loop over instances
 module "ec2_instances" {
-  for_each          = var.instances
-  source            = "./modules/ec2"
-  ami               = var.ami
-  instance_type     = each.value.instance_type
-  name              = each.value.name
-  subnet_tag        = each.value.tag
-  security_group_id = data.aws_security_group.default.id
-  key_name          = var.key_name
-  extra_tags        = each.value.extra_tags
+  for_each             = var.instances
+  source               = "./modules/ec2"
+  ami                  = var.ami
+  instance_type        = each.value.instance_type
+  name                 = each.value.name
+  subnet_tag           = each.value.tag
+  security_group_id    = data.aws_security_group.default.id
+  key_name             = var.key_name
+  extra_tags           = each.value.extra_tags
+  iam_instance_profile = aws_iam_instance_profile.ssm_profile.name
 }

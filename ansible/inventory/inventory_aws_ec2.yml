@@ -4,11 +4,10 @@ regions:
 filters:
   instance-state-name: running
 keyed_groups:
-  - key: tags.AnsibleGroup
-    prefix: tag
+  - key: tags.Name
+    prefix: tag_Name
     separator: "_"
 hostnames:
-  - public-ip-address
+  - instance-id  # Since SSM uses instance ID
 compose:
-  ansible_host: public-ip-address
-cache: false
+  ansible_host: instance-id
