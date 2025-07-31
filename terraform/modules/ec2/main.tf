@@ -30,8 +30,9 @@ resource "aws_instance" "this" {
 
 
   tags = merge({
-    "Name" = each.value.extra_tags["Name"]
-  }, each.value.extra_tags)
+    "Name" = var.extra_tags["Name"]
+  }, var.extra_tags)
+
 
   root_block_device {
     volume_size = 15
