@@ -6,8 +6,8 @@ filters:
   tag:Environment: dev   
 
 keyed_groups:
-  - key: tags.Name
-    prefix: tag
+  - key: tags.AnsibleGroup
+    prefix: tag_AnsibleGroup    
 
 hostnames:
   - instance-id
