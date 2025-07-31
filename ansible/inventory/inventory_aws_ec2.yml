@@ -3,11 +3,14 @@ regions:
   - ap-south-1
 filters:
   instance-state-name: running
+  tag:Environment: dev   
+
 keyed_groups:
   - key: tags.Name
-    prefix: tag_Name
-    separator: "_"
+    prefix: tag
+
 hostnames:
-  - instance-id  # Since SSM uses instance ID
+  - instance-id
+
 compose:
   ansible_host: instance-id
