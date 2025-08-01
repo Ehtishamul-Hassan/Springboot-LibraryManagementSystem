@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.java</groupId>
-	<artifactId>Spring-10-PortfolioApplication</artifactId>
+	<artifactId>Spring-14-LibraryManagementSystem</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Spring-10-PortfolioApplication</name>
+	<name>Spring-14-LibraryManagementSystem</name>
 	<description>Demo project for Spring Security</description>
 	<url />
 	<licenses>

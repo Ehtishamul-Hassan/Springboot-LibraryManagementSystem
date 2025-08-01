@@ -88,6 +88,19 @@
     group: "{{ nexus_group }}"
     mode: '0644'
 
+# - name: Generate JVM options file
+#   template:
+#     src: nexus.vmoptions.j2
+#     dest: "{{ nexus_install_dir }}/bin/nexus.vmoptions"
+#     owner: "{{ nexus_user }}"
+#     group: "{{ nexus_group }}"
+#     mode: '0644'
+
+- name: Check if nexus.vmoptions already exists
+  stat:
+    path: "{{ nexus_install_dir }}/bin/nexus.vmoptions"
+  register: nexus_vmoptions_file
+
 - name: Generate JVM options file
   template:
     src: nexus.vmoptions.j2
@@ -95,6 +108,7 @@
     owner: "{{ nexus_user }}"
     group: "{{ nexus_group }}"
     mode: '0644'
+  when: not nexus_vmoptions_file.stat.exists
 
 - name: Generate systemd service file
   template:
