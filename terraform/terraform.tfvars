@@ -24,4 +24,14 @@ instances = {
       Environment = "dev"
     }
   }
+  docker = {
+    az            = "ap-south-1a"
+    tag           = "1a"
+    name          = "docker-server"
+    instance_type = "t2.micro"
+    extra_tags = {
+      Name        = "docker"
+      Environment = "dev"
+    }
+  }
 }
