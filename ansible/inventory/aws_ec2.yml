@@ -10,6 +10,6 @@ keyed_groups:
   - prefix: tag
     key: tags.Name
 hostnames:
-  - public_ip_address
+  - public-ip-address
 compose:
   ansible_host: public_ip_address
