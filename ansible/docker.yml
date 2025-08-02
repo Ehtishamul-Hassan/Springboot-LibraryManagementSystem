@@ -1,5 +1,5 @@
-- name: Setup Docker and Docker Compose
-  hosts: all
+- name: Install and Configure SonarQube
+  hosts: tag_docker
+  become: true
   roles:
     - docker
-
