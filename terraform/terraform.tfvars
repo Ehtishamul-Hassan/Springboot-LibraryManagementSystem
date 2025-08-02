@@ -14,16 +14,16 @@ instances = {
       Environment = "dev"
     }
   }
-  sonarqube = {
-    az            = "ap-south-1a"
-    tag           = "1a"
-    name          = "sonarqube-server"
-    instance_type = "t3.small"
-    extra_tags = {
-      Name        = "sonar"
-      Environment = "dev"
-    }
-  }
+  # sonarqube = {
+  #   az            = "ap-south-1a"
+  #   tag           = "1a"
+  #   name          = "sonarqube-server"
+  #   instance_type = "t3.small"
+  #   extra_tags = {
+  #     Name        = "sonar"
+  #     Environment = "dev"
+  #   }
+  # }
   docker = {
     az            = "ap-south-1a"
     tag           = "1a"
