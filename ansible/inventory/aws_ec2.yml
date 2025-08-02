@@ -6,6 +6,7 @@ filters:
   tag:Name:
     - sonar
     - nexus
+    - docker
 keyed_groups:
   - prefix: tag
     key: tags.Name
