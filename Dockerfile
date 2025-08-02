@@ -6,7 +6,8 @@ LABEL description="this is the springboot app with database"
 
 WORKDIR /app
 
-COPY target/*.jar app.jar
+# COPY target/*.jar app.jar
+COPY app.jar app.jar
 
 EXPOSE 8080
 
